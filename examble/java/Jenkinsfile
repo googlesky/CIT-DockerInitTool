@@ -10,21 +10,10 @@ pipeline {
         stage('Build') {
             steps {
                 dir('examble/java'){
-                    sh 'mvn clean package'
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                dir('examble/java'){
-                    sh 'mvn test'
-                }
-            }
-            post {
-                always {
-                    dir('examble/java'){
-                        junit 'target/surefire-reports/*.xml'
-                    }
+                    sh '''
+                     export MAVEN_OPTS="-XX:MaxPermSize=128m"
+                     mvn -Plight-test install
+                     '''
                 }
             }
         }
