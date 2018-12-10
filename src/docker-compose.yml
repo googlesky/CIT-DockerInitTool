@@ -10,14 +10,14 @@ services:
     entrypoint:
         - java
         - -jar
-        - myapp.jar
+        - myapp.war
     network_mode: "host"
 
   python:
     build: python
     restart: always
     volumes:
-      - ../code/python:/usr/src/myapp
+      - ./python:/usr/src/myapp
     working_dir: /usr/src/myapp
     network_mode: "host"
 
