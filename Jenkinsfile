@@ -85,7 +85,7 @@ pipeline {
                     sh "cp myapp ../../src/gcc"
                 }
                 dir("code/java"){
-                    unarchive mapping: ['target/*.jar': 'myapp.jar']
+                    unarchive mapping: ['target/*.war': 'myapp.war']
                 }
                 dir("src/python"){
                     unarchive mapping: ['python_code.tar.gz': 'python_code.tar.gz']
