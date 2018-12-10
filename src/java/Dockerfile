@@ -28,4 +28,4 @@ COPY 01proxy /etc/apt/apt.conf.d/
 ENV PATH $PATH:$JAVA_HOME/bin
 
 WORKDIR /usr/src/myapp
-ENTRYPOINT ["java","-jar","myapp.war"]
+ENTRYPOINT ["java","-jar","myapp.jar"]

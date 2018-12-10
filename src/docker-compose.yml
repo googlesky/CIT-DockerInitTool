@@ -7,10 +7,6 @@ services:
     volumes:
       - ../code/java:/usr/src/myapp
     working_dir: /usr/src/myapp
-    entrypoint:
-        - java
-        - -jar
-        - myapp.war
     network_mode: "host"
 
   python:
