@@ -10,7 +10,7 @@ services:
     entrypoint:
         - java
         - -jar
-        - myapp.jar
+        - myapp.war
     network_mode: "host"
 
   python:
