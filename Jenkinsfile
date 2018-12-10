@@ -33,8 +33,8 @@ pipeline {
             steps {
                 dir("examble/java"){
                     sh 'mvn war:war'
-                    sh 'find -name "*.jar"'
-                    archiveArtifacts "target/*.jar"
+                    sh 'find -name "*.war"'
+                    archiveArtifacts "target/*.war"
                 }
             }
         }
