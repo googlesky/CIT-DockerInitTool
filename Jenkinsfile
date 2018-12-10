@@ -31,8 +31,8 @@ pipeline {
                 }
             }
             steps {
-                dir("examble/shiro-spring-boot-sample"){
-                    sh 'mvn -B -DskipTests clean package'
+                dir("examble/java"){
+                    sh 'mvn war:war'
                     sh 'find -name "*.jar"'
                     archiveArtifacts "target/*.jar"
                 }
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 sh """
-                    cp -R examble/devops-project-samples/python/flask/webapp/Application/ ./build_python
+                    cp -R examble/python ./build_python
                     cd build_python
                     mv *.py run.py | true
                     tar -zcvf ../python_code.tar.gz ./
