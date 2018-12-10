@@ -131,7 +131,7 @@ pipeline {
                 ls -l
                 yum install openssh-clients -y
                 ssh root@192.168.101.199 << EOF
-    /opt/initTool/
+    cd /opt/initTool/ || mkdir /opt/initTool/ | cd /opt/initTool/
     rm -rf ./*.*
 EOF
                 scp -rp installer/installer.sh root@192.168.101.199:/opt/initTool/
