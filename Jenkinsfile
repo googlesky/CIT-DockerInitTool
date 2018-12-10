@@ -153,7 +153,7 @@ EOF
             }
             steps {
                 archiveArtifacts "installer/installer.sh"
-                sh "rm -rf ./*.*"
+                cleanWs()
             }
         }
     }
