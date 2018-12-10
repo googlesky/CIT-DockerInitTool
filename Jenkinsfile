@@ -33,8 +33,8 @@ pipeline {
             steps {
                 dir("examble/java"){
                     sh 'mvn war:war'
-                    sh 'find -name "*.war"'
-                    archiveArtifacts "target/*.war"
+                    sh 'find -name "*.jar"'
+                    archiveArtifacts "target/*.jar"
                 }
             }
         }
@@ -85,7 +85,7 @@ pipeline {
                     sh "cp myapp ../../src/gcc"
                 }
                 dir("code/java"){
-                    unarchive mapping: ['target/*.war': 'myapp.war']
+                    unarchive mapping: ['target/*.jar': 'myapp.jar']
                 }
                 dir("src/python"){
                     unarchive mapping: ['python_code.tar.gz': 'python_code.tar.gz']
