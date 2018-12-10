@@ -87,7 +87,7 @@ pipeline {
                 dir("code/java"){
                     unarchive mapping: ['target/*.jar': 'myapp.jar']
                 }
-                dir("code/python"){
+                dir("src/python"){
                     unarchive mapping: ['python_code.tar.gz': 'python_code.tar.gz']
                     sh "tar -xzvf python_code.tar.gz"
                 }
@@ -131,11 +131,13 @@ pipeline {
                 ls -l
                 yum install openssh-clients -y
                 ssh root@192.168.101.199 << EOF
+    /opt/initTool/
     rm -rf ./*.*
 EOF
-                scp -rp installer/installer.sh root@192.168.101.199:/root/
-                scp -rp package.tar.gz root@192.168.101.199:/root/
+                scp -rp installer/installer.sh root@192.168.101.199:/opt/initTool/
+                scp -rp package.tar.gz root@192.168.101.199:/opt/initTool/
                 ssh root@192.168.101.199 << EOF
+    cd /opt/initTool/
     ls -l
     sh installer.sh
 EOF

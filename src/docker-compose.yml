@@ -1,13 +1,6 @@
 version: '3'
 services:
 
-  # gcc:
-  #   build: gcc
-  #   restart: always
-  #   volumes:
-  #     - ../code/gcc/:/usr/src/myapp/
-  #   network_mode: "host"
-
   java:
     build: java
     restart: always
@@ -20,23 +13,6 @@ services:
         - myapp.jar
     network_mode: "host"
 
-  # database:
-  #   build: mariadb/mariadb/10.3
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #   volumes:
-  #     - ../code/mariadb/custom:/etc/mysql/conf.d
-  #     - ../code/mariadb/sql:/docker-entrypoint-initdb.d
-  #   network_mode: "host"
-  #
-  # nginx:
-  #   build: nginx/1.7
-  #   restart: always
-  #   volumes:
-  #     - ../code/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-  #   network_mode: "host"
-
   python:
     build: python
     restart: always
@@ -48,6 +24,6 @@ services:
   web:
     build: web
     volumes:
-      - ../code/web:/var/www/html/
+      - ../code/web:/app/
     restart: always
     network_mode: "host"
